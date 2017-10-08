@@ -1,4 +1,4 @@
-angular.module('app.routes', ['ionicUIRouter'])
+angular.module('app.routes', ['ionicUIRouter','firebase'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -64,7 +64,7 @@ angular.module('app.routes', ['ionicUIRouter'])
     controller: 'pageCtrl'
   })
 
-$urlRouterProvider.otherwise('/page1/tab3/page3')
+$urlRouterProvider.otherwise('/page5')
 
 
 });

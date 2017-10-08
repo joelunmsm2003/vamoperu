@@ -1,32 +1,92 @@
 <ion-view title="Page" hide-nav-bar="true" id="page5" class="fondo">
-  <ion-content padding="true" class="manual-ios-statusbar-padding">
-    <div id="page-markdown2" class="show-list-numbers-and-dots">
-      <ol>
-        <li>QUE TENEMOS QUE GANAR Vamos peruanos que tenemos que ganar Esta hinchada no te deja de alentar</li>
-        <li>BLANQUIRROJA COMO ESTAS Blanquirroja como estas te venimos a ver Aquí está tu hinchada alentándote otra vez</li>
-        <li>VAMOS PERUANOS Oh vamos peruanos que esta noche tenemos que ganar</li>
-        <li>ESTA NOCHE VAMOS A GANAR Blanquirro, esta noche vamos a ganar, cantaré hasta yo verte, yo verte en el mundial</li>
-        <li>PONGAN HUEVOS QUE GANAMOS Blanquirroja vamos Pongan huevos que ganamos</li>
-        <li>HOY TE HE VENIDO A VER Blanquirroja, hoy te he venido a ver pongan huevos, que no puedes perder te llevamos dentro del corazón solo quiero la clasificación.</li>
-        <li>MOLIENDO CAFÉ Vamo vamo vamo vamo vamo Blanquirroja vamo vamo vamo vamo vamo vamo a ganar.</li>
-        <li>CSM TENEMOS QUE GANAR Vamos peruano no le falles a tu hinchada la que te sigue y te alienta sin parar porque esta noche cueste lo que cueste csm tenemos que ganar</li>
-        <li>HOY HAY QUE GANAR Hoy hay que ganar Hoy hay que ganar Hoy hay que ganar BLANQUIRROJA Hoy hay que ganar</li>
-        <li>Un Beso y una Flor Blanquirroja tenemos que ganar pongan huevos esta noche hasta el final como lo hace esta hinchada, que deja la garganta porque solo quiere verte en el mundial (en el mundial Perù)</li>
-        <li>BLANQUIRROJA VAMOS Blanquirroja vamos, blanquirroja vamos blanquirroja vamos q le ganamos, le ganamos te sigo a todas partes, oooh y cada dia que pasa te quiero más, te quiero más PERÚ</li>
-        <li>VAMOS A GANAR Vamo vamos BLANQUIRROJA vamo vamos a ganar que nosotros no paramos hasta verte en el mundial</li>
-        <li>A DÓNDE VAYAS A donde vayas, siempre estaremos ganes o pierdas, yo siempre te aliento esta es tu hinchada, la blanquirroja la que te sigue, donde tu juegues blanquirro blanquirro blanquirro…</li>
-        <li>TE ECHE AL OLVIDO – Tony Rosado Hace tiempo espere este momento, de venir a la tribuna a alentar porque antes era todo silencio y el estadio parecía un funeral. Pero esta vez, no vamos a parar hasta q la gente entienda que la casa se respeta.
-          Yo no te voy a abandonar tienen que matarme primero PERÚ te llevo en las venas. Vamos blanquirroja a ganar con huevos este partido sudemos la camiseta es lo único que te pido.</li>
-        <li>EN EL NACIONAL DE LIMA HAY UNA BARRA En el Nacional de Lima hay una barra Que siempre te alienta hasta el final Blanquirroja no le falles a tu hinchada Poco a poco volveremos al Mundial Es mi obsesión… el Perú es mi locura y religión Blanquirro…
-          esta noche yo te canto con pasión</li>
-        <li>CANTA BLANQUIRROJA Canta Blanquirroja esta canción, de corazón que poco a poco volveremos al mundial, una vez mas.</li>
-        <li>COMO NO TE VOY A QUERER Como no te voy a querer, Como no te voy a querer Si eres mi Perú querido El país bendito que me vio nacer</li>
-        <li>LA BARRA LOCA DE LOS PERUANOS Esta es la barra loca de los peruanos La que corre a los rotos y ecuatorianos asi ganes o pierdas sigo alentando porque a pesar de todo te sigo amando TE SIGO AMANDO</li>
-        <li>JAMAS Jamás, jamás, jamás te dejaremos siempre te alentaremos, con todo el corazón</li>
-        <li>Cariñito - Bareto Vamos, Blanquirroja, que con huevos les ganamos vamos, Blanquirroja que esta noche celebramos. Blanquirroja... de mi vida nunca, pero nunca... nunca te abandonaremos</li>
-        <li>Al fondo hay sitio Hola blanquirroja, te vengo a ver con bombo y banderas alentare te cantamos con locura y pasión tienen q dejar el alma y el corazón Vamo blanquirroja a ponerle huevos y todos estaremos en el mundial de nuevo (x2)</li>
-        <li>La Chula - Mana Nada va a impedir q yo te siga (blanquirro) Nada va a impedir q yo aliente (de corazón) Oye blanquirroja de mi vida No existe nada que me lo impida.</li>
-      </ol>
+
+
+
+
+<div class='fixed44'>
+    <form >
+
+    <div class='tres' style='width: 13%'>
+
+     <button id="clientes-button112" ng-click='openModal()' class="button button-positive button-block"><i class = "icon ion-person" style='color:#fff;'></i>
+</button>
+    
+
+      </div>
+
+      
+        <div class='uno' style='width: 70%'>
+      <label class="item item-input" id="fichaDeCliente-input32">
+      
+        <input ng-model='newMessageText'   required type="text">
+      </label>
+      </div>
+
+      <div class='dos' style='width: 10%'>
+
+     <button id="clientes-button112" ng-click="addMessage(newMessageText);newMessageText=''" type='submit' class="button button-positive button-block"><i class = "icon ion-paper-airplane" style='color:#fff;'></i>
+</button>
+    
+
+      </div>
+
+      
+    </form>
+
     </div>
-  </ion-content>
+
+
+
+
+
+  <ion-content padding="true" class="manual-ios-statusbar-padding">
+
+<ul>
+      <li ng-repeat="message in messages.slice().reverse()">
+
+        <span style='color:red;font-weight:bold;'>{{message.nombre}}</span> : <span>{{message.text}}</span>
+      
+      </li>
+    </ul>
+
+
+         <ion-item ng-if='datocliente'  ng-mouseover='icon=true' ng-mouseleave='icon=false' ng-repeat="cli in todosclientes | filter: datocliente"  class="item-icon-right positive searchlist"  ui-sref="listaDePropuestas({cliente: {{cli.id}}})">
+          <span style='font-size:14px'> {{cli.user__first_name}} {{cli.user__last_name}} {{cli.user__email}}</span></ion-item>
+
+ 
+
+
+
+
+    <!-- push a new message onto the array -->
+
+    
+      </ion-content>
 </ion-view>
+
+<style type="text/css">
+
+.uno,.dos,.tres{
+    display: inline-block;
+    vertical-align: middle;
+}    
+
+.fixed44 {
+
+ bottom: 0px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    padding: 7px;
+
+ 
+}
+.item-input {
+    border-radius: 4px;
+    border: 1px solid #f00;
+}
+
+
+</style>

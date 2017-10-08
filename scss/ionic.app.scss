@@ -1,7 +1,9 @@
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-@import "../www/lib/ionic/scss";
+
+@import "../www/lib/ionic/scss/ionic";
+
 .fondo {
-	background: url("https: //www.bbvaresearch.com/wp-content/uploads/2017/01/AdobeStock_58789129.jpg") no-repeat center center fixed;
+	background: url("../img/bandera.png") no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -33,5 +35,17 @@ body.platform-ios {
 
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,.tab-item,input,button,select,textarea {
 	font-family: inherit;
+}
+
+li{
+        background: #ffffff;
+    color: #000000;
+    padding: 12px;
+    opacity: 0.9;
+    margin-bottom: 12px;
+    transform: skew(-8deg);
+    font-size: 19px;
+
+
 }
 
