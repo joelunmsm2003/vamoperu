@@ -1,13 +1,20 @@
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-
+$primario:white;
+$secundario:red;
 @import "../www/lib/ionic/scss/ionic";
 
 .fondo {
-	background: url("../img/bandera.png") no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	
+	background: red;
+	/* For browsers that do not support gradients */
+	  background: -webkit-linear-gradient(left top, $primario, $secundario);
+	/* For Safari 5.1 to 6.0 */
+	  background: -o-linear-gradient(bottom right, $primario, $secundario);
+	/* For Opera 11.1 to 12.0 */
+	  background: -moz-linear-gradient(bottom right, $primario, $secundario);
+	/* For Firefox 3.6 to 15 */
+	  background: linear-gradient(to bottom right, $primario, $secundario);
+	/* Standard syntax */
 }
 
 .text {
@@ -25,6 +32,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	background-color: red;
 }
 
+body{
+
+	font-family: 'Nunito', sans-serif;
+}
+body.platform-android{
+
+	font-family: 'Nunito', sans-serif;
+}
 body.platform-ios {
 	font-family: 'Noto Sans', sans-serif;
 }
@@ -38,14 +53,23 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,.tab-item,input,button,select,textarea
 }
 
 li{
-        background: #ffffff;
-    color: #000000;
-    padding: 12px;
+	background: #ffffff;
+    color: #310f0f;
+    padding: 4px;
+    padding-left: 11px;
     opacity: 0.9;
-    margin-bottom: 12px;
-    transform: skew(-8deg);
-    font-size: 19px;
+    margin-bottom: 3px;
+    /* transform: skew(-8deg); */
+    font-size: 14px;
 
+}
 
+.button.button-positive {
+    border-color: transparent;
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 51%;
+    height: 50px;
+    width: 50px;
 }
 

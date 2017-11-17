@@ -4,34 +4,33 @@
 
 
 <div class='fixed44'>
-    <form >
+    
 
-    <div class='tres' style='width: 13%'>
+    <div class='tres' style='width: 15%'>
 
-     <button id="clientes-button112" ng-click='openModal()' class="button button-positive button-block"><i class = "icon ion-person" style='color:#fff;'></i>
+     <button id="clientes-button112" ng-click='openModal()' class="button button-positive button-block button-small "><i class = "icon ion-person" style='color:#fff;'></i>
 </button>
     
 
       </div>
 
       
-        <div class='uno' style='width: 70%'>
+        <div class='uno' style='width: 60%'>
       <label class="item item-input" id="fichaDeCliente-input32">
       
         <input ng-model='newMessageText'   required type="text">
       </label>
       </div>
 
-      <div class='dos' style='width: 10%'>
+      <div class='dos' style='width: 15%'>
 
-     <button id="clientes-button112" ng-click="addMessage(newMessageText);newMessageText=''" type='submit' class="button button-positive button-block"><i class = "icon ion-paper-airplane" style='color:#fff;'></i>
+     <button id="clientes-button112" ng-click="addMessage(newMessageText);newMessageText=''"  class="button button-positive button-block button-small "><i class = "icon ion-paper-airplane" style='color:#fff;'></i>
 </button>
     
 
       </div>
 
       
-    </form>
 
     </div>
 
@@ -39,13 +38,31 @@
 
 
 
-  <ion-content padding="true" class="manual-ios-statusbar-padding">
+  <ion-content padding="false" class="manual-ios-statusbar-padding">
+
+  <!-- <div>
+        <a style="display:block;" ui-sref="manos()">
+          <img src="img/rusia.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+        </a>
+      </div> -->
+
+    <ion-slides disable-side-menu-drag="" options="{'loop': true}" slider="slider2" delegate-handle="slider2" id="bellezaExpress-slider2" style="width:100%;height:400px;" class="slide1">
+
+
+      <ion-slide-page ng-repeat='f in fotos' id="bellezaExpress-slide28" style="background:url(http://xiencias.com:5000/{{f.foto}}) no-repeat center;background-size:cover;"></ion-slide-page>
+   
+
+
+    </ion-slides>
+
+      
 
 <ul>
       <li ng-repeat="message in messages.slice().reverse()">
 
-        <span style='color:red;font-weight:bold;'>{{message.nombre}}</span> : <span>{{message.text}}</span>
-      
+        <span style='color:red;font-weight:bold;'>{{message.nombre}}</span>  <span>{{message.text}}</span>
+
+
       </li>
     </ul>
 

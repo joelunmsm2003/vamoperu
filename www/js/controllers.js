@@ -41,10 +41,12 @@ function ($scope, $stateParams) {
 
 }])
    
-.controller('pageCtrl', ['$scope', '$stateParams','$firebaseArray','$ionicModal', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('pageCtrl', ['$scope', '$stateParams','$firebaseArray','$ionicModal','$localStorage','$http', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams,$firebaseArray,$ionicModal) {
+function ($scope, $stateParams,$firebaseArray,$ionicModal,$localStorage,$http) {
+
+  $http.get("http://xiencias.com:5000/fotos/").success(function(response) {$scope.fotos=response});
 
 
 
@@ -67,7 +69,8 @@ function ($scope, $stateParams,$firebaseArray,$ionicModal) {
 
     console.log(data)
 
-    $scope.nombre = data
+    $localStorage.nombre = data
+
 
       $scope.modal.hide();
 
@@ -78,30 +81,34 @@ function ($scope, $stateParams,$firebaseArray,$ionicModal) {
 
 
 
-
    var ref = firebase.database().ref().child("messages");
 
-   console.log('hdhd',$scope.nombre)
 
-   $scope.nombre=''
   // create a synchronized array
   // click on `index.html` above to see it used in the DOM!
   $scope.messages = $firebaseArray(ref);
 
     $scope.addMessage = function(data) {
 
+console.log('data',data)
+
+if(data){
+
+if (typeof $localStorage.nombre === 'undefined') {
+          $localStorage.nombre=''
+        }
 
 
 
     $scope.messages.$add({
       text: data,
-      nombre:$scope.nombre
+      nombre:$localStorage.nombre
     });
   };
 
   $scope.newMessageText=''
 
-
+}
 
 
 }])

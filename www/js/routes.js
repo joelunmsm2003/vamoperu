@@ -1,4 +1,4 @@
-angular.module('app.routes', ['ionicUIRouter','firebase'])
+angular.module('app.routes', ['ionicUIRouter','firebase','ngStorage'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
